@@ -177,15 +177,15 @@ public class HealthController {
                 field = list.get(x).split("\\|");
                 System.out.println("data yg diproses = "+list.get(x));
             }
-//            if(field!=null) {
+            if(field!=null) {
             	WebElement npk = driver.findElement(By.id("npk"));
-//                npk.sendKeys(field[0]);
-                npk.sendKeys("OUT1106");
+                npk.sendKeys(field[0]);
+//                npk.sendKeys("OUT1106");
                 
                 WebElement nama = driver.findElement(By.id("nama"));
-//                nama.sendKeys(field[1]);
-                nama.sendKeys("Arya Nur Prasetya");
-//            }
+                nama.sendKeys(field[1]);
+//                nama.sendKeys("Arya Nur Prasetya");
+            }
             
             
             List<WebElement> koncovRadio = driver.findElements(By.id("koncov"));
