@@ -15,12 +15,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 @Component
 public class HealthController {
 
 	@Scheduled(cron="1 * * * * *")
 	public void index() throws FileNotFoundException, InterruptedException {
-		System.setProperty("webdriver.chrome.driver","util/chromedriver.exe");					
+//		System.setProperty("webdriver.chrome.driver","/src/main/java/chromedriver.exe");	
+		WebDriverManager.chromedriver().setup();
         System.out.println("Auto Gabut Web Health Form -CREATED By Om Js- ");
 //        jatisForm();
 		fifastrapayForm();
@@ -147,7 +150,7 @@ public class HealthController {
 	}
 	
 	public void fifastrapayForm() throws FileNotFoundException, InterruptedException {        
-        File myObj = new File("field.txt");
+        File myObj = new File("/src/main/java/field.txt");
         Scanner myReader = new Scanner(myObj);
         List<String> list = new ArrayList<String>();
         String field[]=null;
@@ -177,15 +180,15 @@ public class HealthController {
                 field = list.get(x).split("\\|");
                 System.out.println("data yg diproses = "+list.get(x));
             }
-            if(field!=null) {
+//            if(field!=null) {
             	WebElement npk = driver.findElement(By.id("npk"));
-                npk.sendKeys(field[0]);
-//                npk.sendKeys("OUT1106");
+//                npk.sendKeys(field[0]);
+                npk.sendKeys("OUT1106");
                 
                 WebElement nama = driver.findElement(By.id("nama"));
-                nama.sendKeys(field[1]);
-//                nama.sendKeys("Arya Nur Prasetya");
-            }
+//                nama.sendKeys(field[1]);
+                nama.sendKeys("Arya Nur Prasetya");
+//            }
             
             
             List<WebElement> koncovRadio = driver.findElements(By.id("koncov"));
