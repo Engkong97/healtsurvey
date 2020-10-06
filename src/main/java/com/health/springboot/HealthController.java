@@ -150,17 +150,17 @@ public class HealthController {
 	}
 	
 	public void fifastrapayForm() throws FileNotFoundException, InterruptedException {        
-        File myObj = new File("/src/main/java/field.txt");
-        Scanner myReader = new Scanner(myObj);
-        List<String> list = new ArrayList<String>();
-        String field[]=null;
-        int i=0;
-        while (myReader.hasNextLine()) {
-          list.add(myReader.nextLine()) ;
-          System.out.println(list.get(i));
-          i++;
-        }
-        myReader.close();
+//        File myObj = new File("/src/main/java/field.txt");
+//        Scanner myReader = new Scanner(myObj);
+//        List<String> list = new ArrayList<String>();
+//        String field[]=null;
+//        int i=0;
+//        while (myReader.hasNextLine()) {
+//          list.add(myReader.nextLine()) ;
+//          System.out.println(list.get(i));
+//          i++;
+//        }
+//        myReader.close();
         for(int x=0 ;x<i ;x++) {
         	WebDriver driver = new ChromeDriver();
 
@@ -176,10 +176,10 @@ public class HealthController {
             WebElement lokasi = lokasiKerjaRadio.get(1);
             lokasi.click();
             
-            if(list.size()>0) {
-                field = list.get(x).split("\\|");
-                System.out.println("data yg diproses = "+list.get(x));
-            }
+//            if(list.size()>0) {
+//                field = list.get(x).split("\\|");
+//                System.out.println("data yg diproses = "+list.get(x));
+//            }
 //            if(field!=null) {
             	WebElement npk = driver.findElement(By.id("npk"));
 //                npk.sendKeys(field[0]);
